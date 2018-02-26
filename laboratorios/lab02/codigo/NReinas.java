@@ -54,22 +54,5 @@ public class NReinas
         }
         System.out.println();
     }
-    
-     public static void TakeTime(int n){
-      long startTime = System.currentTimeMillis();
-      nReinas(n);
-      long estimatedTime = System.currentTimeMillis() - startTime;
-      System.out.println(estimatedTime);
-  }//fin del método
-  
-  public static void main(String[] args)
-  {
-      int[] a;
-    
-      for(int i =1; i<=2; i++)
-      {
-        TakeTime(11);
-     }//fin ciclo
-  }
 }
 
