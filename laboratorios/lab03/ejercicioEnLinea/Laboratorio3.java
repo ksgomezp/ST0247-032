@@ -11,20 +11,22 @@ public class Laboratorio3 {
 
 
 
-    public static int costoMinimo(Digraph g, int inicio, int fin) {
+    public static ArrayList<Integer> costoMinimo(Digraph g, int inicio, int fin) {
         int[] costo = new int[g.size];
         for (int i = 0; i < g.size; i++) {
             costo[i] = Integer.MAX_VALUE;
         }
+        ArrayList<Integer> recorrido = new ArrayList();
+        recorrido.add(inicio);
         costo[inicio]=0;
         
-        dfs(g, inicio, costo,0);
-        if(costo[fin]==Integer.MAX_VALUE) return -1;
-        return costo[fin];
+        dfs(g, inicio, costo,recorrido,0);
+       // if(costo[fin]==Integer.MAX_VALUE) return -1;
+        return recorrido;
     }
 
     // recomendacion
-    private static void dfs(Digraph g, int v, int[] costo,int acum) {
+    private static void dfs(Digraph g, int v, int[] costo,ArrayList<Integer> recorrido,int acum) {
 
         ArrayList<Integer> hijos = g.getSuccessors(v);
         if (hijos == null) {
@@ -35,8 +37,10 @@ public class Laboratorio3 {
             if (costo[vecino] > acum) {
                 costo[vecino] = g.getWeight(v, vecino) + acum;
                 acum += g.getWeight(v, vecino);
-             dfs(g, vecino, costo,acum);
+                recorrido.add(vecino);
+             dfs(g, vecino, costo,recorrido,acum);
              acum-=g.getWeight(v, vecino);
+             
              
                 
             }
