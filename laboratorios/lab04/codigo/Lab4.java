@@ -55,33 +55,5 @@ public class Lab4 {
         System.out.println("0");
         System.out.println("costo:"+costo);
     }
-
-
-public static void main(String[] args) {
- DigraphAL g1 = new DigraphAL(5);
-		g1.addArc(0, 1, 2);
-		g1.addArc(0, 2, 2);
-		g1.addArc(0, 3, 1);
-		g1.addArc(0, 4, 4);
-		g1.addArc(1, 0, 2);
-		g1.addArc(1, 2, 3);
-		g1.addArc(1, 3, 2);
-		g1.addArc(1, 4, 3);
-		g1.addArc(2, 0, 2);
-		g1.addArc(2, 1, 3);
-		g1.addArc(2, 3, 2);
-		g1.addArc(2, 4, 2);
-		g1.addArc(3, 0, 1);
-		g1.addArc(3, 1, 2);
-		g1.addArc(3, 2, 2);
-		g1.addArc(3, 4, 4);
-		g1.addArc(4, 0, 4);
-		g1.addArc(4, 1, 3);
-		g1.addArc(4, 2, 2);
-		g1.addArc(4, 3, 4);
-                
-                System.out.println("Respuesta esperada = 12, respuesta obtenida=");
-                agenteViajero(g1);
-    }
     
 }
