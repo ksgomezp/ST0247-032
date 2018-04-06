@@ -1,16 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package taller8;
 
 import java.util.Arrays;
 
-/**
- *
- * @author ksgomezp
- */
 public class Taller8 {
 
     public static void mergeSort(int[] a) {
@@ -67,11 +57,40 @@ public class Taller8 {
         }
     }
  
+    public static void quicksort(int[] a) {
+        quicksort(a, 0, a.length - 1);
+        System.out.println(Arrays.toString(a));
+    }
+    
+    private static void quicksort(int[] a, int left, int right) {
+        int i = left, j = right;
+        int pivot = a[left + (right - left) / 2];
+        
+        while(i <= j){
+            while(a[i] < pivot) i++;
+            while(a[j] > pivot) j--;
+            if (i <= j) {                    
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                i++; j--;
+            }
+        }
+        
+        if (left < j)
+            quicksort(a, left, j);
+        if (i < right)
+            quicksort(a, i, right);
+    }
 
     public static void main(String[] args) {
        int[] w = {2, 10, 46, 1, 8};
        mergeSort(w);
-        System.out.println(Arrays.toString(w));
+       System.out.println(Arrays.toString(w));
+
+       int[] s = {2, 10, 46, 1, 8};
+       quicksort(s);
+       System.out.println(Arrays.toString(s));
     }
     
 }
