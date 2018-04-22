@@ -38,7 +38,7 @@ public class ShortestPath {
                     }
                     cVisited[dst] = true;
                     element = dst;
-                    timeP += min/Main
+                    timeP += min/Main.data.getSpeed();
                     System.out.print(" (" + ((min/Main.data.getSpeed())/60)+" min) " +dst);
                     minFlag = false;
                     continue;
@@ -46,7 +46,7 @@ public class ShortestPath {
                 break;
             }
         timeT += graph.getWeight(dst,0)/Main.data.getSpeed();
-        System.out.print(" (" + ((min/Main.data.getSpeed())/60)+" min) " +dst);
+        System.out.print(" (" + ((graph.getWeight(dst,0)/Main.data.getSpeed())/60)+" min) " +dst);
     }
 
 }

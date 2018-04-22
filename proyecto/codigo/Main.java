@@ -56,14 +56,10 @@ public class Main {
             read();
             makeGraph();
             ShortestPath.tsp(map);
-            Pair[] oe = ShortestPath.dijkistra(map,0);
-            int i = 0;
         } catch (IOException e) {
             System.err.println("IOException");
         }
-        //for (Node node : nodes) {
-        //    System.out.println(node.getID()+";"+node.getxCoordinate()+";"+node.getyCoordinate()+";"+node.getNodeType());
-        //}
+
     }
 
 }
