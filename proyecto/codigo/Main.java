@@ -1,8 +1,16 @@
+/**
+ * Esta es la clase principal del proyecto
+ * en esta se leen los DataSets, se crea el Grafo con los datos
+ * tambien invoca el algoritmo de TSP
+ * @author  Santiago Soto y Kevin Gomez
+ * @version 2.1
+ * @since   2018-04-20
+ */
+import javax.swing.JOptionPane;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import javafx.util.Pair;
 
 public class Main {
 
@@ -10,9 +18,13 @@ public class Main {
     public static Graph map;
     public static Data data;
 
-    public static void read() throws IOException {
-        String cadena;
-        BufferedReader b = new BufferedReader(new FileReader("DataSets/tc2c320s24cf1.txt"));
+    /**
+     * Este Metodo realiza la lectura de los DataSets
+     * @param dir Es la direccion donde esta el archivo a leer
+     * @exception IOException Error con el arrivo de entrada
+     */
+    public static void read(String dir) throws IOException {
+        BufferedReader b = new BufferedReader(new FileReader(dir));
 
         String[] dat = new String[10];
         for (int i = 0; i < dat.length; i++)
@@ -35,6 +47,8 @@ public class Main {
         for (int i = 0; i < 3; i++)
             g[i] = b.readLine();
         data.addLG(l,g);
+        data.addCharge();
+
         b.close();
     }
 
@@ -50,16 +64,22 @@ public class Main {
             }
         }
     }
-
+    /**
+     * Este es le metodo principal
+     * En este se invoca el metodo de lectura y del algoritmo de TSP
+     */
     public static void main(String[] args){
         try {
-            read();
+            String dir = JOptionPane.showInputDialog("Ingrese dirección del DataSet")+"";
+            read(dir);
             makeGraph();
             ShortestPath.tsp(map);
         } catch (IOException e) {
             System.err.println("IOException");
         }
-
+        //for (Node node : nodes) {
+        //    System.out.println(node.getID()+";"+node.getxCoordinate()+";"+node.getyCoordinate()+";"+node.getNodeType());
+        //}
     }
 
 }
